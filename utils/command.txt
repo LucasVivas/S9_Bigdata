@@ -1,0 +1,27 @@
+run cluster : 
+source user-env.sh
+start-dfs.sh
+start-yarn.sh
+
+stop cluster :
+stop-dfs.sh
+stop-yarn.sh
+
+run web-user hadoop :
+vanhalen: 50070
+
+before everything :
+source /espace/nomdunode/user-env.sh
+
+use root hadoop:
+hdfs dfs -ls hdfs://vanhalen:9000/
+
+run jar :
+hadoop jar nomdufichier.jar args...
+
+root hadoop:
+hdfs:// (from the PC mainnode)
+hdfs://young:9000:/ (from another PC)
+
+build jar: 
+mvn package

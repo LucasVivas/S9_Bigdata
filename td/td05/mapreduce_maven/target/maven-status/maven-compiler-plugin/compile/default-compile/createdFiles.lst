@@ -1,0 +1,7 @@
+FakeInputSplit.class
+Point2DWritable.class
+TP5.class
+RandomPointReader.class
+RandomPointInputFormat.class
+TP5$TP5Mapper.class
+TP5$TP5Reducer.class

@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bigdata</groupId>
+  <artifactId>minimal-skeleton</artifactId>
+  <version>0.0.1</version>
+  <name>Minimal Bigdata app skeleton</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.hadoop</groupId>
+  		<artifactId>hadoop-common</artifactId>
+  		<version>2.7.3</version>
+  	</dependency>
+  </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>ssh-repository</id>
+            <url>lvivas@jaguar.emi.u-bordeaux.fr:~/</url>
+        </repository>
+    </distributionManagement>
+  <build>
+      <extensions>
+          <extension>
+              <groupId>org.apache.maven.wagon</groupId>
+              <artifactId>wagon-ssh-external</artifactId>
+              <version>1.0-beta-6</version>
+          </extension>
+      </extensions>
+      <plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-jar-plugin</artifactId>
+  			<version>3.0.2</version>
+  			<configuration>
+  				<archive>
+  					<manifest>
+  						<mainClass>bigdata.MonApplication</mainClass>
+  					</manifest>
+  				</archive>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>

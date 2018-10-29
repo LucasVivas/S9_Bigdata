@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bigdata</groupId>
+  <artifactId>tp3-mapreduce</artifactId>
+  <version>0.0.1</version>
+  <name>Minimal MapReduce app skeleton</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.hadoop</groupId>
+  		<artifactId>hadoop-common</artifactId>
+  		<version>2.7.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.hadoop</groupId>
+  		<artifactId>hadoop-mapreduce-client-core</artifactId>
+  		<version>2.7.3</version>
+  	</dependency>
+  </dependencies>
+
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-jar-plugin</artifactId>
+  			<version>3.0.2</version>
+  			<configuration>
+  				<archive>
+  					<manifest>
+  						<mainClass>TP3</mainClass>
+  					</manifest>
+  				</archive>
+  			</configuration>
+  		</plugin>
+
+		<!--add to pom-->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.8</version>
+			<executions>
+				<execution>
+					<id>scp-to-remote</id>
+					<phase>package</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+					<configuration>
+						<target>
+							<!-- keyfile+passphrase or  password, choose one -->
+							<!--
+                            <scp localFile="${project.basedir}/target/qos-spark-1.0.jar"
+                              remoteToFile="root@192.168.203.156:/usr/sanss" verbose="true"
+                              keyfile="C:\Users\shengw\.ssh\192.168.203.156\id_rsa"
+                              passphrase="">
+                            </scp>
+                             -->
+							<scp localFile="${project.basedir}/target/tp3-mapreduce-0.0.1.jar"
+								 remoteToFile="lvivas@jaguar.emi.u-bordeaux.fr:~/espaces/travail/bigdata/td/jar/" verbose="true"
+								 keyfile="~/.ssh/idcremi_ecdsa" passphrase="" trust="true">
+							</scp>
+						</target>
+					</configuration>
+				</execution>
+			</executions>
+			<!-- libraries for scp impl      -->
+			<!-- antrun doesn't use os's scp -->
+			<dependencies>
+				<dependency>
+					<groupId>com.jcraft</groupId>
+					<artifactId>jsch</artifactId>
+					<version>0.1.53</version>
+				</dependency>
+				<dependency>
+					<groupId>ant</groupId>
+					<artifactId>ant-jsch</artifactId>
+					<version>1.6.5</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+  	</plugins>
+  </build>
+</project>
