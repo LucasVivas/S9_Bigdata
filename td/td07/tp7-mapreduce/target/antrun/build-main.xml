@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <scp trust="true" localFile="/home/lulu/Cours/semestre_9/bigdata/td/td07/tp7-mapreduce/target/tp7-mapreduce-0.0.1.jar" remoteToFile="lvivas@jaguar.emi.u-bordeaux.fr:~/espaces/travail/bigdata/td/jar/" keyfile="~/.ssh/idcremi_ecdsa" passphrase="" verbose="true"></scp>
+</target>
+</project>

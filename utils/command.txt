@@ -25,3 +25,12 @@ hdfs://young:9000:/ (from another PC)
 
 build jar: 
 mvn package
+
+voir les appli lancer :
+yarn application -list
+
+kill une appli :
+yarn application -kill monapp
+
+hadoop name:
+HADOOP_USER_NAME=hadoop
