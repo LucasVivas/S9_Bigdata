@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>bigdata</groupId>
-  <artifactId>tp5-mapreduce</artifactId>
+  <artifactId>tp-hbase</artifactId>
   <version>0.0.1</version>
-  <name>Minimal MapReduce app skeleton</name>
+  <name>Minimal HBase app skeleton</name>
   <dependencies>
   	<dependency>
   		<groupId>org.apache.hadoop</groupId>
   		<artifactId>hadoop-common</artifactId>
   		<version>2.7.3</version>
   	</dependency>
-  	<dependency>
-  		<groupId>org.apache.hadoop</groupId>
-  		<artifactId>hadoop-mapreduce-client-core</artifactId>
-  		<version>2.7.3</version>
+	<dependency>
+  		<groupId>org.apache.hbase</groupId>
+  		<artifactId>hbase-client</artifactId>
+  		<version>1.2.3</version>
   	</dependency>
   </dependencies>
   <build>
@@ -21,16 +21,15 @@
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
   			<artifactId>maven-jar-plugin</artifactId>
-  			<version>3.0.2</version>
+  			<version>3.0.0</version>
   			<configuration>
   				<archive>
   					<manifest>
-  						<mainClass>TP5</mainClass>
+  						<mainClass>bigdata.TPHBase</mainClass>
   					</manifest>
   				</archive>
   			</configuration>
   		</plugin>
-		<!--add to pom-->
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-antrun-plugin</artifactId>
@@ -52,7 +51,7 @@
                               passphrase="">
                             </scp>
                              -->
-							<scp localFile="${project.basedir}/target/tp5-mapreduce-0.0.1.jar"
+							<scp localFile="${project.basedir}/target/tp-hbase-0.0.1.jar"
 								 remoteToFile="lvivas@jaguar.emi.u-bordeaux.fr:~/espaces/travail/bigdata/td/jar/" verbose="true"
 								 keyfile="~/.ssh/idcremi_ecdsa" passphrase="" trust="true">
 							</scp>
