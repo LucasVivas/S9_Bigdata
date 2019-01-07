@@ -8,7 +8,7 @@ import java.io.IOException;
 public class RandomPointReader extends RecordReader {
     private LongWritable curKey = new LongWritable(0);
     private Point2DWritable curPoint = new Point2DWritable();
-    private long nbPoints = 1000;
+    private long nbPoints = 0;
 
     public RandomPointReader() {
         super();
